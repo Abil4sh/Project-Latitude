@@ -69,17 +69,16 @@ Synthetic longitudinal data, stated as such throughout. No public dataset tracks
 borrowers month to month, so trajectories are generated; income distributions and DTI ranges are
 anchored to published lending statistics rather than invented.
 
-The classes deliberately overlap — some declining borrowers keep paying, some stressed borrowers
+The classes deliberately overlap some declining borrowers keep paying, some stressed borrowers
 aren't declining. A generator producing three cleanly separable groups would report a higher
 accuracy that meant nothing.
 
 Model selection is done under cross-validation across several candidates and picked on F1, not on
 a single favourable train/test split.
 
-## Known limits (say these before a judge finds them)
-
+## Known limits 
 - The flexibility simulation models the *effect* of easing an installment on the forecast. It does
-  not generate an amortisation schedule — that's the production step beyond this prototype.
+  not generate an amortisation schedule,that's the production step beyond this prototype.
 - Decision thresholds (recovery gate, relief strength) are configured, not learned. In production
   they are lender policy inputs.
 - The demo HTML is static: decisions are precomputed for all borrowers. The FastAPI service is

@@ -17,7 +17,6 @@ Microfinance borrowers often earn irregular income.
 Their income may fall during seasonal periods, while their loan repayment schedule remains fixed.
 
 This creates a difficult situation:
-
 ```text
 Income ↓
    ↓
@@ -30,6 +29,9 @@ Lender sees repayment stress
 But is this a temporary dip or a genuine decline?
 
 ## Run the live stack
+
+
+
 
 Backend:
 

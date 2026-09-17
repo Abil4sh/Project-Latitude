@@ -1,0 +1,194 @@
+{
+  "selected_model": "Hist Gradient Boosting",
+  "live_api_model": "XGBoost (tuned)",
+  "validation_method": "5-fold stratified cross-validation",
+  "n_borrowers": 420,
+  "n_rows": 15161,
+  "positive_rate": 0.2523809523809524,
+  "accuracy": 0.9642857142857143,
+  "precision": 0.9174311926605505,
+  "recall": 0.9433962264150944,
+  "f1": 0.9302325581395349,
+  "roc_auc": 0.9943516404278332,
+  "confusion_matrix": [
+    [
+      305,
+      9
+    ],
+    [
+      6,
+      100
+    ]
+  ],
+  "feature_importances": {
+    "projected_surplus_ratio": 0.36621153354644775,
+    "recent_vs_prior": 0.15106843411922455,
+    "recent_surplus_ratio": 0.08175510168075562,
+    "worst_3m_surplus_ratio": 0.061733487993478775,
+    "surplus_volatility": 0.03507160022854805,
+    "months_below_cover": 0.03192099183797836,
+    "recovery_ratio": 0.027294831350445747,
+    "income_expense_ratio": 0.025888264179229736,
+    "income_cv_recent": 0.025773897767066956,
+    "normalized_slope": 0.022557619959115982,
+    "income_acceleration": 0.022146400064229965,
+    "miss_rate_history": 0.02118699438869953,
+    "dip_depth": 0.02016950398683548,
+    "payment_buffer_ratio": 0.01794721931219101,
+    "cashflow_autocorr": 0.0163052286952734,
+    "expense_trend": 0.012466621585190296,
+    "expense_pressure": 0.008668169379234314,
+    "dti": 0.008596953935921192,
+    "installment_to_income": 0.008413566276431084,
+    "income_momentum": 0.007872727699577808,
+    "surplus_trend": 0.006948752794414759,
+    "recent_miss_rate": 0.005562981590628624,
+    "income_floor_ratio": 0.005211448296904564,
+    "recent_income_vs_baseline": 0.005184336099773645,
+    "volatility": 0.004043361637741327,
+    "stress_streak": 0.0,
+    "recovery_count": 0.0,
+    "coverage_ratio": 0.0
+  },
+  "selected_features": [
+    "normalized_slope",
+    "volatility",
+    "recent_vs_prior",
+    "dip_depth",
+    "miss_rate_history",
+    "recovery_ratio",
+    "dti",
+    "recent_surplus_ratio",
+    "projected_surplus_ratio",
+    "recent_miss_rate",
+    "months_below_cover",
+    "surplus_trend",
+    "income_cv_recent",
+    "expense_pressure",
+    "income_floor_ratio",
+    "income_momentum",
+    "payment_buffer_ratio",
+    "income_acceleration",
+    "stress_streak",
+    "recovery_count",
+    "worst_3m_surplus_ratio",
+    "surplus_volatility",
+    "recent_income_vs_baseline",
+    "expense_trend",
+    "installment_to_income",
+    "coverage_ratio",
+    "income_expense_ratio",
+    "cashflow_autocorr"
+  ],
+  "model_comparison": {
+    "Logistic Regression": {
+      "accuracy": 0.9571428571428572,
+      "precision": 0.8666666666666667,
+      "recall": 0.9811320754716981,
+      "f1": 0.9203539823008849,
+      "roc_auc": 0.9950426631414494,
+      "confusion_matrix": [
+        [
+          298,
+          16
+        ],
+        [
+          2,
+          104
+        ]
+      ]
+    },
+    "Random Forest (tuned)": {
+      "accuracy": 0.9547619047619048,
+      "precision": 0.8849557522123894,
+      "recall": 0.9433962264150944,
+      "f1": 0.91324200913242,
+      "roc_auc": 0.9955233745943997,
+      "confusion_matrix": [
+        [
+          301,
+          13
+        ],
+        [
+          6,
+          100
+        ]
+      ]
+    },
+    "Extra Trees": {
+      "accuracy": 0.9523809523809523,
+      "precision": 0.8706896551724138,
+      "recall": 0.9528301886792453,
+      "f1": 0.9099099099099099,
+      "roc_auc": 0.9958238192524936,
+      "confusion_matrix": [
+        [
+          299,
+          15
+        ],
+        [
+          5,
+          101
+        ]
+      ]
+    },
+    "Hist Gradient Boosting": {
+      "accuracy": 0.9666666666666667,
+      "precision": 0.9339622641509434,
+      "recall": 0.9339622641509434,
+      "f1": 0.9339622641509434,
+      "roc_auc": 0.9952529744021151,
+      "confusion_matrix": [
+        [
+          307,
+          7
+        ],
+        [
+          7,
+          99
+        ]
+      ]
+    },
+    "XGBoost (tuned)": {
+      "accuracy": 0.9642857142857143,
+      "precision": 0.9174311926605505,
+      "recall": 0.9433962264150944,
+      "f1": 0.9302325581395349,
+      "roc_auc": 0.9943516404278332,
+      "confusion_matrix": [
+        [
+          305,
+          9
+        ],
+        [
+          6,
+          100
+        ]
+      ]
+    },
+    "Ensemble (soft vote)": {
+      "accuracy": 0.9619047619047619,
+      "precision": 0.9017857142857143,
+      "recall": 0.9528301886792453,
+      "f1": 0.926605504587156,
+      "roc_auc": 0.9954332411969715,
+      "confusion_matrix": [
+        [
+          303,
+          11
+        ],
+        [
+          5,
+          101
+        ]
+      ]
+    }
+  },
+  "ensemble_members": [
+    "Hist Gradient Boosting",
+    "XGBoost (tuned)",
+    "Logistic Regression"
+  ],
+  "model_format": "xgboost_json",
+  "dataset_design": "140 stable + 140 temporary-stress + 140 structural-decline; 30-42 months each; six-month forward label"
+}

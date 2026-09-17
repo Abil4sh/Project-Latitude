@@ -8,6 +8,10 @@ Instead of treating a missed EMI as an isolated credit event, Latitude looks at 
 
 It then simulates repayment-flexibility options and recommends the **minimum flexibility necessary** when doing so improves borrower stability while keeping expected lender recovery above a defined floor.
 
+<img width="1440" height="811" alt="Screenshot 2026-09-17 at 4 47 05 PM" src="https://github.com/user-attachments/assets/998325db-3db9-437a-a982-ed0c90270350" />
+
+<img width="1436" height="805" alt="Screenshot 2026-09-17 at 4 47 30 PM" src="https://github.com/user-attachments/assets/d7d7dbc8-6619-4f21-aa4f-87b6c97ee823" />
+
 ---
 
 ## The Problem

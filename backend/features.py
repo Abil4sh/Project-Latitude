@@ -1,4 +1,3 @@
-"""History-only feature extraction for six-month forward stress prediction."""
 from __future__ import annotations
 
 import numpy as np

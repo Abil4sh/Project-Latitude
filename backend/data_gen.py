@@ -24,7 +24,8 @@ def generate_borrower(
     n_months: int,
     rng: np.random.Generator,
 ) -> pd.DataFrame:
-    base_income = rng.uniform(14000, 100000)
+    # Target segment: low-income irregular earners, ~Rs.10k-20k monthly.
+    base_income = rng.uniform(10000, 20000)
     expense_ratio = rng.uniform(0.48, 0.76)
     base_expenses = base_income * expense_ratio
     dti = rng.uniform(0.08, 0.29)

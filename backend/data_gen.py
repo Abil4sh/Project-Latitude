@@ -1,9 +1,4 @@
-"""Synthetic longitudinal borrower data for the Latitude prototype.
 
-The generator intentionally creates realistic overlap between stable, temporary-shock,
-and structural-decline repayment paths. The future six-month stress label is *not*
-used in feature creation, preventing target leakage.
-"""
 from __future__ import annotations
 
 import numpy as np
@@ -24,7 +19,6 @@ def generate_borrower(
     n_months: int,
     rng: np.random.Generator,
 ) -> pd.DataFrame:
-    # Target segment: low-income irregular earners, ~Rs.10k-20k monthly.
     base_income = rng.uniform(10000, 20000)
     expense_ratio = rng.uniform(0.48, 0.76)
     base_expenses = base_income * expense_ratio
@@ -56,7 +50,6 @@ def generate_borrower(
         decline_start = int(rng.integers(8, max(10, n_months - 13)))
         decline_rate = rng.uniform(0.012, 0.024)
         income[decline_start:] *= (1 - decline_rate) ** np.arange(n_months - decline_start)
-        # A small temporary shock can exist on top of the decline.
         if rng.random() < 0.45:
             shock_start = int(rng.integers(decline_start + 2, n_months - 5))
             shock_len = int(rng.integers(2, 5))
@@ -70,7 +63,6 @@ def generate_borrower(
     expenses *= 1 + 0.015 * np.sin(months / 4.8 + rng.uniform(0, 2 * np.pi))
     expenses = np.clip(expenses, base_income * 0.25, None)
 
-    # A borrower can still pay despite a noisy month when surplus clears the installment.
     payment_capacity = income - expenses
     repaid_on_time = (payment_capacity >= installment).astype(int)
 

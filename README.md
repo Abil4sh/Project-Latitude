@@ -1,24 +1,33 @@
-# Latitude — Repayment Decision Layer
+# Project Latitude
 
-Manipal Hackathon 2026 · Microfinance Track
+> **Irregular income doesn't mean irregular creditworthiness.**
 
-Cloud decision infrastructure a lender integrates over API. Latitude reads borrower cash-flow
-history, forecasts repayment stress, simulates whether temporary flexibility would improve
-expected recovery, and returns a gated recommendation with its reasoning. Not a consumer app —
-the lender's own systems consume it; the dashboard is one view of the API output.
+Project Latitude is a decision-support prototype for microfinance lenders dealing with borrowers whose income changes significantly from month to month.
 
-## What's here
+Instead of treating a missed EMI as an isolated credit event, Latitude looks at the borrower's **cash-flow history and expected future trajectory** to determine whether the borrower is experiencing a temporary, recoverable dip or a sustained decline.
 
-    latitude_demo.html    Self-contained demo — open it in any browser, no install, no server.
-                          This is the shareable/submission artefact.
-    backend/              FastAPI service + the trained model
-      data_gen.py           synthetic longitudinal borrower generator
-      features.py           history → feature extraction (forecast window held out)
-      decision_engine.py    expected-recovery maths + approve/deny gating
-      train_model.py        regenerate data, compare models, retrain
-      main.py               API: /api/borrowers, /{id}/history, /{id}/decision, /api/model/metrics
-      artifacts/            pre-trained model + data — demo works without retraining
-    frontend/             React + Vite dashboard (the deck's stated stack)
+It then simulates repayment-flexibility options and recommends the **minimum flexibility necessary** when doing so improves borrower stability while keeping expected lender recovery above a defined floor.
+
+---
+
+## The Problem
+
+Microfinance borrowers often earn irregular income.
+
+Their income may fall during seasonal periods, while their loan repayment schedule remains fixed.
+
+This creates a difficult situation:
+
+```text
+Income ↓
+   ↓
+EMI remains fixed
+   ↓
+Borrower struggles to pay
+   ↓
+Lender sees repayment stress
+   ↓
+But is this a temporary dip or a genuine decline?
 
 ## Run the live stack
 

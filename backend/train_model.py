@@ -1,4 +1,3 @@
-"""Train, validate, compare and persist the Latitude stress model."""
 from __future__ import annotations
 
 import json
@@ -80,7 +79,6 @@ def main():
     }
 
     best_name = max(comparison, key=lambda k: (comparison[k]['f1'], comparison[k]['roc_auc']))
-    # XGBoost is the live serving model so the API artifact stays compact and portable.
     live_name = 'XGBoost (tuned)'
     live_model = candidates[live_name]
     live_model.fit(X, y)

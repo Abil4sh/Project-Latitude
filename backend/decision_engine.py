@@ -1,4 +1,3 @@
-"""Expected-recovery decisioning logic used by the Latitude demo."""
 from __future__ import annotations
 
 from typing import Any
